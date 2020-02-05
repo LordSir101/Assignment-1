@@ -9,18 +9,23 @@
 canvas{
   z-index: -1;
 }
+
 button{
   margin-top: 1%;
   margin left: 20px;
   width: 20%;
   height: 16%;
-  border-width: 1;
-  border-color: black;
+  border: 1px solid black;
   border-radius: 5px;
-  background-color: #cccc00;
+  background-color: white;
   cursor:pointer;
   z-index: 100;
+}
 
+button:active {
+  color: white;
+  background: rgb(94,85,252);
+  background: linear-gradient(0deg, rgba(94,85,252,1) 0%, rgba(84,156,255,1) 100%);
 }
 
 #button-wrapper{
@@ -38,35 +43,43 @@ button{
   margin-top: 1%;
   position: absolute;
   text-align: center;
-  outline-style: double;
-  outline-color: #cccc00;
-  outline-width: thick;
+  border: 2px solid black;
   width: 60%;
   height:20%;
   left: 20%;
-  background-color: rgb(40,40,40,0.5);
-
+  background-color: rgba(255, 255, 255, 0.65);
 }
 
 #chatWrap ul{
   list-style: none;
-  font-weight: bold;
-  font-family: Verdana;
+  font-weight: normal;
+  font-family: sans-serif;
   font-size: 1.2em;
-  color: white;
-  text-shadow:  1px 1px 1px #080808, 0px -1px 1px #080808, -1px 0px 1px #080808, 1px 0px 1px #080808;
+  color: black;
+  text-shadow:  none;
+  position: relative;
+  height: auto;
 }
 
 #chat-form{
-  margin-top: 18%
+  margin-top: 18%;
 }
+
+#chat {
+  border: 1px solid black;
+  height: 24px;
+}
+
 #container{
+  overflow: scroll;
   display: block;
   position: relative;
+
 }
+
 
 hr{
   width: 80%;
   align: center;
-  opacity: 50%;
+  color: black;
 }

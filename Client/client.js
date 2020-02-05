@@ -85,7 +85,7 @@ function displayScore(){
   ctx.fillStyle = "white";
   ctx.lineWidth = 3;
 
-  ctx.font = "30px Verdana"
+  ctx.font = "30px sans-serif"
   ctx.fillText("You:", w/8 - ctx.measureText("You:").width/2, (h - h/6) - 20);
   ctx.fillText("Opponent:", w - ctx.measureText("Opponent:").width/2 - w/8, (h - h/6) - 20);
 
@@ -112,12 +112,12 @@ sock.on("writeMessage", (text)=>{
 
   const parent = document.querySelector('#events'); //returns first element that matches the argument
   const el = document.createElement('li');
-  const line = document.createElement('hr');
+  //const line = document.createElement('hr');
   el.innerHTML = text;
 
   //adds the new list element to <ul>
-  parent.appendChild(el);
-  parent.appendChild(line);
+  parent.insertBefore(el, parent.childNodes[0]);
+  //parent.appendChild(line);
 })
 
 addButtonListeners();
