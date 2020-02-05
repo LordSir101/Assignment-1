@@ -1,0 +1,32 @@
+
+#canvasWrap{
+  width: 70%;
+  margin: auto;
+  position: relative;
+  text-align: center;
+}
+
+canvas{
+  z-index: -1;
+}
+button{
+  margin-top: 1%;
+  margin left: 20px;
+  width: 20%;
+  height: 16%;
+  border-width: 1;
+  border-color: black;
+  border-radius: 5px;
+  background-color: #cccc00;
+  cursor:pointer;
+  z-index: 100;
+
+}
+
+#button-wrapper{
+  text-align: center;
+  width: 50%;
+  bottom: 5%;
+  left: 25%;
+  position: absolute;
+}
