@@ -25,6 +25,10 @@ sock.on("enemyChosen", (id)=>{
   enemyImg.src = "images/enemy"+id+".png";
 });
 
+sock.on('score', (score) => {
+  console.log(score[0] + ", " + score[1]);
+});
+
 var animation;
 
 function animationLoop(){
