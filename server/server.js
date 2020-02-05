@@ -1,7 +1,9 @@
+//****Assignment 1***
+
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
-const Events = require('./serverEvents');
+const Game = require('./game.js');
 
 
 const app = express();
@@ -18,7 +20,7 @@ const io = socketio(server);
 var waitingPlayer = null;
 io.on('connection', (sock) => {
   if(waitingPlayer){
-    new Events(waitingPlayer, sock);
+    new Game(waitingPlayer, sock);
     console.log("game can start");
     waitingPlayer = null;
   }
@@ -34,6 +36,6 @@ server.on('error', (err) =>{
   console.error('server error:' + err);
 });
 
-server.listen(3000, '192.168.2.105');
+server.listen(3000, '205.211.159.164');
 //server.listen(8080);
 console.log("rps started on 3000");
