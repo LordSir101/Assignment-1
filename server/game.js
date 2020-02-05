@@ -5,8 +5,13 @@ class Game{
     this.choices = [null, null];
     this.score = [0, 0];
 
+
+
     this.players.forEach((player, idx) => {
       player.on('chosen', (id) => {
+          this.players.forEach((player) => {
+            player.emit("hideChoices");
+          });
         this.__display(idx, id);
         this.makeChoice(player, id);
 
@@ -30,6 +35,9 @@ class Game{
     else
       this.choices[1] = choice;
     if (this.choices[0] != null && this.choices[1] != null) {
+      this.players.forEach((player) => {
+        player.emit("showChoices");
+      });
       if (this.choices[0] == this.choices[1]) {
         console.log("Tie");
       } else {
@@ -66,7 +74,13 @@ class Game{
       this.choices[0] = null;
       this.choices[1] = null;
       this.players.forEach((player, idx) => {
-        player.emit('score', this.score);
+        if(player == this.players[1]){
+          player.emit('score', this.score[1], this.score[0]);
+        }
+        else{
+          player.emit('score', this.score[0], this.score[1]);
+        }
+
       });
 
     }
