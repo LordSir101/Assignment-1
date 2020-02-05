@@ -18,9 +18,10 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 var waitingPlayer = null;
+var game;
 io.on('connection', (sock) => {
   if(waitingPlayer){
-    new Game(waitingPlayer, sock);
+    game = new Game(waitingPlayer, sock);
     console.log("game can start");
     waitingPlayer = null;
   }
@@ -29,6 +30,11 @@ io.on('connection', (sock) => {
     console.log("waiting for player");
   }
 
+  sock.on('disconnect', () => {
+    if (waitingPlayer == sock)
+      waitingPlayer = null;
+  });
+
 });
 
 //server event listeners------------------------------------------------------------------
@@ -36,6 +42,6 @@ server.on('error', (err) =>{
   console.error('server error:' + err);
 });
 
-server.listen(3000, '205.211.159.164');
+server.listen(3000, 'localhost');
 //server.listen(8080);
 console.log("rps started on 3000");
