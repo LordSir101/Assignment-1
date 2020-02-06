@@ -6,7 +6,6 @@ class Game{
     this.score = [0, 0];
 
 
-
     this.players.forEach((player, idx) => {
       player.on('chosen', (id) => {
           this.players.forEach((player) => {
@@ -17,6 +16,14 @@ class Game{
 
       });
     });
+
+    this.players.forEach((player)=>{
+      player.on("message", (text)=>{
+        this.__sendMessageToPlayers(text);
+      });
+    });
+
+    this.__sendMessageToPlayers("Server: The game can start");
   }
 
   __display(idx, id){
@@ -38,6 +45,7 @@ class Game{
       this.players.forEach((player) => {
         player.emit("showChoices");
       });
+
       if (this.choices[0] == this.choices[1]) {
         console.log("Tie");
       } else {
@@ -84,7 +92,17 @@ class Game{
       });
 
     }
+    else{
+      this.__sendMessageToPlayers("Server: A new game has started");
+    }
 
+  }//end make choice
+
+  __sendMessageToPlayers(text){
+    console.log("here");
+    this.players.forEach((player) => {
+      player.emit("writeMessage", text)
+    });
   }
 }
 

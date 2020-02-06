@@ -4,7 +4,7 @@ const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
 const Game = require('./game.js');
-const Chat = require('./chat.js');
+
 
 
 const app = express();
@@ -19,21 +19,21 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 var waitingPlayer = null;
+
 var game;
 var chat;
 io.on('connection', (sock) => {
   if(waitingPlayer){
     game = new Game(waitingPlayer, sock);
-    chat = new Chat(waitingPlayer, sock);
+    
     console.log("game can start");
     waitingPlayer = null;
+
   }
   else{
     waitingPlayer = sock;
     console.log("waiting for player");
   }
-
-  
 
   sock.on('disconnect', () => {
     if (waitingPlayer == sock)
