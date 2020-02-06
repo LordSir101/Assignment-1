@@ -1,4 +1,14 @@
+#chatWrap::-webkit-scrollbar {
+  display: none;
+}
 
+html *{
+  margin: 0;
+  padding: 0;
+}
+.rps-wrapper{
+  margin-top: 30px;
+}
 #canvasWrap{
   width: 70%;
   margin: auto;
@@ -8,6 +18,7 @@
 
 canvas{
   z-index: -1;
+  outline: black 3px solid;
 }
 
 button{
@@ -38,15 +49,14 @@ button:active {
 
 #chatWrap{
   text-align: center;
-  10%;
   overflow-y: scroll;
   margin-top: 1%;
   position: absolute;
   text-align: center;
   border: 2px solid black;
-  width: 60%;
+  width: 50%;
   height:20%;
-  left: 20%;
+  left: 25%;
   background-color: rgba(255, 255, 255, 0.65);
 }
 
@@ -61,6 +71,9 @@ button:active {
   height: auto;
 }
 
+li{
+  margin-top: 10px;
+}
 #chat-form{
   margin-top: 18%;
 }
@@ -71,7 +84,7 @@ button:active {
 }
 
 #container{
-  overflow: scroll;
+
   display: block;
   position: relative;
 
@@ -79,7 +92,12 @@ button:active {
 
 
 hr{
-  width: 80%;
+  width: 100%;
   align: center;
   color: black;
+  opacity: 50%;
+  border-style: solid;
+  margin-top: 20px;
+
+
 }

@@ -83,15 +83,25 @@ function displayScore(){
   ctx.textAlign = 'left'; //bases the poition of the text from the top left corner
   ctx.textBaseline = 'top';
   ctx.fillStyle = "white";
-  ctx.lineWidth = 3;
+  ctx.lineWidth = 1;
 
-  ctx.font = "30px sans-serif"
+  ctx.strokeStyle = "black";
+  ctx.miterLimit = 2; //defines how far outline extends on sharp corners
+  ctx.lineJoin = 'circle';
+
+  ctx.font = "35px sans-serif"
   ctx.fillText("You:", w/8 - ctx.measureText("You:").width/2, (h - h/6) - 20);
   ctx.fillText("Opponent:", w - ctx.measureText("Opponent:").width/2 - w/8, (h - h/6) - 20);
 
-  ctx.font = "40px Verdana"
+  ctx.strokeText("You:", w/8 - ctx.measureText("You:").width/2, (h - h/6) - 20);
+  ctx.strokeText("Opponent:", w - ctx.measureText("Opponent:").width/2 - w/8, (h - h/6) - 20);
+
+  ctx.font = "45px sans-serif";
   ctx.fillText(playerScore, w/8 - scoreWidth/2, (h - h/6) + 20);
   ctx.fillText(enemyScore, w - scoreWidth2/2 - w/8, (h - h/6) + 20);
+
+  ctx.strokeText(playerScore, w/8 - scoreWidth/2, (h - h/6) + 20);
+  ctx.strokeText(enemyScore, w - scoreWidth2/2 - w/8, (h - h/6) + 20);
 }
 
 document.querySelector('#chat-form').addEventListener('submit', onFormSubmitted);
@@ -112,12 +122,12 @@ sock.on("writeMessage", (text)=>{
 
   const parent = document.querySelector('#events'); //returns first element that matches the argument
   const el = document.createElement('li');
-  //const line = document.createElement('hr');
+  const line = document.createElement('hr');
   el.innerHTML = text;
 
   //adds the new list element to <ul>
-  parent.insertBefore(el, parent.childNodes[0]);
-  //parent.appendChild(line);
+  parent.appendChild(el);
+  parent.appendChild(line);
 })
 
 addButtonListeners();
