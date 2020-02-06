@@ -1,0 +1,103 @@
+#chatWrap::-webkit-scrollbar {
+  display: none;
+}
+
+html *{
+  margin: 0;
+  padding: 0;
+}
+.rps-wrapper{
+  margin-top: 30px;
+}
+#canvasWrap{
+  width: 70%;
+  margin: auto;
+  position: relative;
+  text-align: center;
+}
+
+canvas{
+  z-index: -1;
+  outline: black 3px solid;
+}
+
+button{
+  margin-top: 1%;
+  margin left: 20px;
+  width: 20%;
+  height: 16%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  cursor:pointer;
+  z-index: 100;
+}
+
+button:active {
+  color: white;
+  background: rgb(94,85,252);
+  background: linear-gradient(0deg, rgba(94,85,252,1) 0%, rgba(84,156,255,1) 100%);
+}
+
+#button-wrapper{
+  text-align: center;
+  width: 50%;
+  bottom: 5%;
+  left: 25%;
+  position: absolute;
+}
+
+#chatWrap{
+  text-align: center;
+  overflow-y: scroll;
+  margin-top: 1%;
+  position: absolute;
+  text-align: center;
+  border: 2px solid black;
+  width: 50%;
+  height:20%;
+  left: 25%;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+#chatWrap ul{
+  list-style: none;
+  font-weight: normal;
+  font-family: sans-serif;
+  font-size: 1.2em;
+  color: black;
+  text-shadow:  none;
+  position: relative;
+  height: auto;
+}
+
+li{
+  margin-top: 10px;
+}
+#chat-form{
+  margin-top: 18%;
+}
+
+#chat {
+  border: 1px solid black;
+  height: 24px;
+}
+
+#container{
+
+  display: block;
+  position: relative;
+
+}
+
+
+hr{
+  width: 100%;
+  align: center;
+  color: black;
+  opacity: 50%;
+  border-style: solid;
+  margin-top: 20px;
+
+
+}
